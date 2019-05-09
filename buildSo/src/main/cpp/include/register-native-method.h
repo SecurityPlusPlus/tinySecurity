@@ -10,7 +10,7 @@
 // 获取数组的大小
 # define NELEM(x) ((int) (sizeof(x) / sizeof((x)[0])))
 // 指定注册的类的路径(包名路径 + 类名)，通过FindClass 方法查找到对应的类
-#define JNIREG_CLASS "com/atom/lib/tinysecurity/TinySecurityCore"
+#define JNIREG_CLASS "com/atom/plugin/tinysecurity/TinySecurityCore"
 
 #ifdef __cplusplus
 extern "C" {

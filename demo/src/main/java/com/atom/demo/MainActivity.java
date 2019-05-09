@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.atom.lib.tinysecurity.TinySecurityClient;
+import com.atom.plugin.tinysecurity.TinySecurityClient;
+
 
 /**
  * Test
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         new Thread() {
             @Override
             public void run() {
-                for (int i = 0; i < 100000; i++) {
+                for (int i = 0; i < 1; i++) {
                     System.out.println(TinySecurityClient.dbKey());
                     System.out.println(TinySecurityClient.mmkey());
                 }

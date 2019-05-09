@@ -1,6 +1,6 @@
 
 #include "include/extern-keys.h"
-#include "include/AesEncryptor.h"
+#include "include/aesEncryptor.h"
 #include "include/logger.h"
 #include "include/register-native-method.h"
 #include "include/md5.h"

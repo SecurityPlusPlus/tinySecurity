@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include "include/AesEncryptor.h"
+#include "include/aesEncryptor.h"
 #include "include/logger.h"
 #include "include/extern-keys.h"
 #include "include/aes.h"
