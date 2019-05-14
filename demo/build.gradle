@@ -39,10 +39,9 @@ dependencies {
 }
 
 /**
- * 目前仅支持AES128、256加密
- * 加密模式支持ECB、CBC 模式
- * 加密模式CBC 可以设置IV（16个字节）Base64模式输入
- * CBC 模式默认IV）为16个0x00。
+ * 目前仅支持AES128ECB、CBC加密模式
+ * 加密模式CBC 支持自定义设置IV（16个字节）Base64模式输入
+ * CBC 模式默认IV为16个0x00。
  */
 tinySecurity {
     //保存要加密数据的键值对
