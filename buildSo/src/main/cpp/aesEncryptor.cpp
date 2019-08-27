@@ -47,7 +47,7 @@ const char *Encryptor::decrypt(const char *key, const char *cipher_message) {
                        reinterpret_cast<unsigned char *>(resultChars), &resultLen,
                        realKey, 16);
 #endif
-#else //默认CBC模式
+#else //默认ECB模式
     ulRet = aesDecrypt(1, NULL, realCipher, realCipherLen,
                        reinterpret_cast<unsigned char *>(resultChars), &resultLen,
                        realKey, 16);

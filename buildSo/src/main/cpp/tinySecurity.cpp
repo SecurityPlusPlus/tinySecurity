@@ -1,8 +1,7 @@
-
 #include "include/extern-keys.h"
 #include "include/aesEncryptor.h"
 #include "include/logger.h"
-#include "include/register-native-method.h"
+#include "include/register_jni_method.h"
 #include "include/md5.h"
 #include "include/base64.h"
 #include "include/aes.h"
@@ -19,7 +18,7 @@ void init(JNIEnv *env, jclass type) {
 }
 
 jstring getString(JNIEnv *env, jclass instance, jstring key_) {
-    const char *key = env->GetStringUTFChars(key_, 0);
+    const char *key = env->GetStringUTFChars(key_, NULL);
     string keyStr(key);
     string value = _map[keyStr];
     Encryptor *encryptor = new Encryptor(env);
@@ -65,4 +64,3 @@ jbyteArray decrypt(JNIEnv *env, jclass instance, jbyteArray key_,jbyteArray ciph
     }
     return NULL;
 }
-

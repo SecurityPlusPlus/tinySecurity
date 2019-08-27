@@ -18,5 +18,5 @@ final class TinySecurityCore {
 
     private static native String getString(String key);
 
-    public static native byte[] decrypt(byte[] key, byte[] cipher);
+    public static native byte[] decrypt(byte[] key, byte[] iv, byte[] cipher);
 }

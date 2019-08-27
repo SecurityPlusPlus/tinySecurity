@@ -9,7 +9,7 @@ dependencies {
     implementation gradleApi()
     implementation localGroovy()
     implementation 'com.squareup:javapoet:1.11.1'
-    implementation 'com.android.tools.build:gradle:3.4.0'
+    implementation 'com.android.tools.build:gradle:3.5.0'
 }
 
 sourceCompatibility = "1.8"
@@ -18,3 +18,27 @@ targetCompatibility = "1.8"
 archivesBaseName = 'tinySecurity'
 version = '0.1'
 
+task zipNativeArchive(type: Zip) {
+    destinationDir project.file("build/libs")
+    archiveName "$archivesBaseName-${version}.jarx"
+    from project.zipTree("build/libs/$archivesBaseName-${version}.jar")
+    include "META-INF/**"
+    include "com/**"
+//    def archiveFile = project.rootProject.file("buildSo").canonicalPath
+    from project.rootProject.file("buildSo").canonicalPath
+    include "src/main/**"
+    include "CMakeLists.txt"
+    exclude "src/main/cpp/include/extern-keys.h"
+    exclude "src/main/jni"
+    exclude "src/main/res/**"
+    exclude "src/main/AndroidManifest.xml"
+    into archiveName
+//    doLast {
+//        def originJar = project.file("build/libs/$archivesBaseName-${version}.jar")
+//        def xJar = project.file("build/libs/$archivesBaseName-${version}.jarx")
+////        originJar.delete()
+//        xJar.renameTo(originJar)
+//    }
+}
+
+tasks['jar'].finalizedBy zipNativeArchive

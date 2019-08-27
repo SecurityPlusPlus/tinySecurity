@@ -16,11 +16,12 @@
 extern "C" {
 #endif
 
-JNIEXPORT void JNICALL init(JNIEnv *, jclass);
+/**
+ * JNI 定义的方法
+ */
+void init(JNIEnv *, jclass);
 
-JNIEXPORT jstring JNICALL getString(JNIEnv *, jclass, jstring);
-
-JNIEXPORT jbyteArray JNICALL decrypt(JNIEnv *, jclass, jbyteArray, jbyteArray);
+jstring getString(JNIEnv *, jclass, jstring);
 
 /**
  * 函数映射表
@@ -33,7 +34,6 @@ JNIEXPORT jbyteArray JNICALL decrypt(JNIEnv *, jclass, jbyteArray, jbyteArray);
 static JNINativeMethod methods[] = {
         {"init",      "()V",                                    (void *) init},
         {"getString", "(Ljava/lang/String;)Ljava/lang/String;", (void *) getString},
-        {"decrypt",   "([B[B)[B",                               (void *) decrypt},
         //这里可以有很多其他映射函数
 };
 
